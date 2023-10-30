@@ -33,21 +33,23 @@ async function generateLogo() {
       }
     ]);
 
-    let shape;
-    switch (userInput.shapeType) {
-      case 'circle':
-        shape = new Circle(50, userInput.shapeColor); // Adjust the radius as needed
-        break;
-      case 'square':
-        shape = new Square(50, userInput.shapeColor); // Adjust the side length as needed
-        break;
-      case 'triangle':
-        shape = new Triangle(100, 100, userInput.shapeColor); // Adjust the base and height as needed
-        break;
-      default:
-        console.error('Invalid shape type');
-        return;
-    }
+    // Inside generateLogo() function
+let shape;
+switch (userInput.shapeType) {
+  case 'circle':
+    shape = new Circle(50, userInput.shapeColor, userInput.text, userInput.textColor);
+    break;
+  case 'square':
+    shape = new Square(50, userInput.shapeColor, userInput.text, userInput.textColor);
+    break;
+  case 'triangle':
+    shape = new Triangle(100, 100, userInput.shapeColor, userInput.text, userInput.textColor);
+    break;
+  default:
+    console.error('Invalid shape type');
+    return;
+}
+
 
     const svgContent = shape.render();
 
